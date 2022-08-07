@@ -1,7 +1,9 @@
 {
   "expo": {
-    "name": "uber-eats-user",
+    "name": "Uber Eats User",
     "slug": "uber-eats-user",
+    "privacy":"public",
+    "description":"",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
