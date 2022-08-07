@@ -11,7 +11,8 @@ export enum OrderStatus {
   READY_FOR_PICKUP = "READY_FOR_PICKUP",
   PICKED_UP = "PICKED_UP",
   COMPLETED = "COMPLETED",
-  ACCEPTED = "ACCEPTED"
+  ACCEPTED = "ACCEPTED",
+  DECLINED_BY_RESTAURANT = "DECLINED_BY_RESTAURANT"
 }
 
 
@@ -54,7 +55,7 @@ export declare class Courier {
   readonly sub: string;
   readonly lat?: number | null;
   readonly lng?: number | null;
-  readonly transportationMode?: TransportationModes | keyof typeof TransportationModes | null;
+  readonly transportationMode: TransportationModes | keyof typeof TransportationModes;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<Courier, CourierMetaData>);
@@ -115,6 +116,7 @@ export declare class Restaurant {
   readonly lng: number;
   readonly Dishes?: (Dish | null)[] | null;
   readonly Baskets?: (Basket | null)[] | null;
+  readonly adminSub?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<Restaurant, RestaurantMetaData>);

@@ -9,7 +9,7 @@ type Courier @model @auth(rules: [{allow: public}]) {
   sub: String!
   lat: Float
   lng: Float
-  transportationMode: TransportationModes
+  transportationMode: TransportationModes!
 }
 
 enum OrderStatus {
@@ -19,6 +19,7 @@ enum OrderStatus {
   PICKED_UP
   COMPLETED
   ACCEPTED
+  DECLINED_BY_RESTAURANT
 }
 
 type OrderDish @model @auth(rules: [{allow: public}]) {
@@ -85,5 +86,6 @@ type Restaurant @model @auth(rules: [{allow: public}]) {
   lng: Float!
   Dishes: [Dish] @hasMany(indexName: "byRestaurant", fields: ["id"])
   Baskets: [Basket] @hasMany(indexName: "byRestaurant", fields: ["id"])
+  adminSub: String
 }
  
